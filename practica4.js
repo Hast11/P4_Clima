@@ -8,9 +8,9 @@ exports.load = (file) => {
 
 // Temperatura máxima
 exports.max_temp = (cities) => {
-    let temperaturaMaxima = cities[0].main.temp_max;
+    let temperaturaMaxima = cities[0].main.temp;
     cities.forEach(ciudad => {
-        let temperaturaMaximaCiudad =  ciudad.main.temp_max;
+        let temperaturaMaximaCiudad =  ciudad.main.temp;
         if (temperaturaMaximaCiudad > temperaturaMaxima){
             temperaturaMaxima=temperaturaMaximaCiudad;
         }
