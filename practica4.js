@@ -162,4 +162,29 @@ exports.gravity_center = (cities) => {
     return centro;
 };
 
-exports.closest_GC = (cities) => {};
+exports.closest_GC = (cities) => {
+    let lonAcumulada=0;
+    let latAcumulada=0;
+
+    for (let i=0;i<cities.length;i++){
+        lonAcumulada += (cities[i].coord.lon);
+        latAcumulada += (cities[i].coord.lat);
+    };
+
+    let lonFinal = lonAcumulada/cities.length;
+    let latFinal = latAcumulada/cities.length;
+    
+    //Primero sacar ciudad con menos distancia
+    let lonAux = cities[0].coord.lon-lonFinal;
+    let latAux = cities[0].coord.lat-latFinal;
+    let distMin =Math.sqrt(Math.pow(lonAux,2)+Math.pow(latAux,2));
+    let indiceCiudadCerca=0;
+    for(let i=0;i<ciudad.length;i++){
+        let distancia = Math.pow(cities[i].coord.lon-lonFinal,2)+Math.pow(cities[i].coord.lat-latFinal,2)
+        if(distancia<distMin){
+            distMin=distancia;
+            indiceCiudadCerca=i;
+        }
+    };
+    return cities[indiceCiudadCerca].name;
+}
