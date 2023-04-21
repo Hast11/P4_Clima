@@ -173,18 +173,21 @@ exports.closest_GC = (cities) => {
 
     let lonFinal = lonAcumulada/cities.length;
     let latFinal = latAcumulada/cities.length;
-    
+
     //Primero sacar ciudad con menos distancia
+    let indiceCiudad=0;
     let lonAux = cities[0].coord.lon-lonFinal;
     let latAux = cities[0].coord.lat-latFinal;
     let distMin =Math.sqrt(Math.pow(lonAux,2)+Math.pow(latAux,2));
-    let indiceCiudadCerca=0;
-    for(let i=0;i<ciudad.length;i++){
-        let distancia = Math.pow(cities[i].coord.lon-lonFinal,2)+Math.pow(cities[i].coord.lat-latFinal,2)
+    for (let i=0;i<cities.length;i++){
+        let diferenciaLon = cities[i].coord.lon - lonFinal;
+        let diferenciaLat = cities[i].coord.lat - latFinal;
+        let distancia = Math.sqrt(Math.pow(diferenciaLat,2)+ Math.pow(diferenciaLon,2));
         if(distancia<distMin){
             distMin=distancia;
-            indiceCiudadCerca=i;
+            indiceCiudad=i;
+
         }
     };
-    return cities[indiceCiudadCerca].name;
+    return cities[indiceCiudad].name;
 }
