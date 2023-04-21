@@ -51,7 +51,13 @@ exports.min_temp_max = (cities) => {
     return tempMaxMin;
 };
 
-exports.average_temp = (cities) => {};
+exports.average_temp = (cities) => {
+    let acumuladoTemp = 0;
+    for (let i=0;i<cities.length;i++){
+        acumuladoTemp += cities[i].main.temp;
+    }
+    return (acumuladoTemp/cities.length);
+};
 
 exports.warmer_average_temp = (cities) => {};
 
