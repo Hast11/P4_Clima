@@ -115,7 +115,14 @@ exports.max_north = (cities) => {
 };
 
 exports.max_south = (cities) => {
-    let maximoSur = cities[0].coord.lon;
+    let maximoSur = cities[0];
+    for (let i=0;i<cities.length;i++){
+        if(cities[i].coord.lat<maximoSur.coord.lat){
+            maximoSur=cities[i];
+        }
+    };
+    return maximoSur.name;
+/*     let maximoSur = cities[0].coord.lon;
     cities.forEach(ciudad =>{
         if(cities[ciudad].coord.lon<maximoSur){
             maximoNorte=cities[ciudad].coord.lon;
@@ -128,7 +135,7 @@ exports.max_south = (cities) => {
     let ciudadMasSur2 = ciudadMasSur.map((ciudad)=>{
         return[ciudad.name]
     });
-    return ciudadMasSur2;
+    return ciudadMasSur2; */
 };
 
 exports.gravity_center = (cities) => {};
