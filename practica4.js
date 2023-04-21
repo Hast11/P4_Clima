@@ -90,7 +90,22 @@ exports.max_north = (cities) => {
     return ciudadMasNorte2;
 };
 
-exports.max_south = (cities) => {};
+exports.max_south = (cities) => {
+    let maximoSur = cities[0].coord.lon;
+    cities.forEach(ciudad =>{
+        if(cities[ciudad].coord.lon<maximoSur){
+            maximoNorte=cities[ciudad].coord.lon;
+        }
+    })
+    
+    let ciudadMasSur = cities.filter((ciudad)=>{
+        return ciudad.coord.lon = maximoSur;
+    })
+    let ciudadMasSur2 = ciudadMasSur.map((ciudad)=>{
+        return[ciudad.name]
+    });
+    return ciudadMasSur2;
+};
 
 exports.gravity_center = (cities) => {};
 
