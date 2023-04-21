@@ -88,20 +88,30 @@ exports.warmer_average_temp = (cities) => {
 };
 
 exports.max_north = (cities) => {
-    let maximoNorte = cities[0].coord.lon;
-    cities.forEach(ciudad =>{
-        if(cities[ciudad].coord.lon>maximoNorte){
-            maximoNorte=cities[ciudad].coord.lon;
+    let maximoNorte = cities[0];
+    for (let i=0;i<cities.length;i++){
+        if(cities[i].coord.lat>maximoNorte.coord.lat){
+            maximoNorte=cities[i];
         }
-    })
-    
-    let ciudadMasNorte = cities.filter((ciudad)=>{
-        return ciudad.coord.lon = maximoNorte;
-    })
-    let ciudadMasNorte2 = ciudadMasNorte.map((ciudad)=>{
-        return[ciudad.name]
-    });
-    return ciudadMasNorte2;
+    };
+    return maximoNorte.name;
+        // cities.forEach(ciudad =>{
+    //     if(cities[ciudad].coord.lon>maximoNorte){
+    //         maximoNorte=cities[ciudad].coord.lon;
+    //     }
+    //});
+    // for (let i=0;i<cities.length;i++){
+        // if(maximoNorte<cities[i].coord.lon){
+            // maximoNorte=cities[i].coord.lon
+        // }
+    // };
+    // let ciudadMasNorte = cities.filter((ciudad)=>{
+        // return ciudad.coord.lon == maximoNorte;
+    // });
+    // let ciudadMasNorte2 = ciudadMasNorte.map((ciudad)=>{
+        // return[ciudad.name]
+    // });
+    // return ciudadMasNorte2;
 };
 
 exports.max_south = (cities) => {
