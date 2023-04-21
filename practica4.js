@@ -57,9 +57,21 @@ exports.average_temp = (cities) => {
         acumuladoTemp += cities[i].main.temp;
     }
     return (acumuladoTemp/cities.length);
+    
 };
 
-exports.warmer_average_temp = (cities) => {};
+exports.warmer_average_temp = (cities) => {
+    let acumuladoTemp = 0;
+    for (let i=0;i<cities.length;i++){
+        acumuladoTemp += cities[i].main.temp;
+    }
+    let mediaTemp = acumuladoTemp/cities.length;
+
+    let ciudadesMasTempQueMedia = cities.filter((ciudad)=>{
+        let temperatura = ciudad.main.temp;
+        return temperatura > mediaTemp;
+    })
+};
 
 exports.max_north = (cities) => {};
 
