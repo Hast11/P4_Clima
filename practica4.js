@@ -80,6 +80,11 @@ exports.warmer_average_temp = (cities) => {
         let temperatura = ciudad.main.temp;
         return temperatura > mediaTemp;
     })
+    let arrayFinal = ciudadesMasTempQueMedia.map((ciudad)=>{
+        return[ciudad.name]
+    });
+
+    return arrayFinal;
 };
 
 exports.max_north = (cities) => {
