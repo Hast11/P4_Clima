@@ -142,16 +142,23 @@ exports.gravity_center = (cities) => {
     //Primero: Media Aritmetica de las ciudades
     let lonAcumulada=0;
     let latAcumulada=0;
-    let mediaLon = cities.forEach((ciudad)=>{
+/*     cities.forEach((ciudad)=>{
         lonAcumulada += (ciudad.coord.lon*ciudad.coord.lon)
     });
-    let mediaLat = cities.forEach((ciudad)=>{
+    cities.forEach((ciudad)=>{
         latAcumulada += (ciudad.coord.lat*ciudad.coord.lat)
-    });
-    let lonFinal = Math.sqrt(lonAcumulada);
-    let latFinal = Math.sqrt(latAcumulada);
+    }); */
+    for (let i=0;i<cities.length;i++){
+        lonAcumulada += (cities[i].coord.lon);
+        latAcumulada += (cities[i].coord.lat);
+    };
+    let lonFinal = lonAcumulada/cities.length;
+    let latFinal = latAcumulada/cities.length;
     //Segundo Crear Objeto con esas dos propiedades
-    let centro ={lon:lonFinal,lat:latFinal};
+    let centro = {
+        lat: latFinal,
+        lon: lonFinal
+      };
     return centro;
 };
 
