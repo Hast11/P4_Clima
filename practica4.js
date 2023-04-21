@@ -20,7 +20,17 @@ exports.max_temp = (cities) => {
 };
 
 // Temperatura mínimo
-exports.min_temp = (cities) => {};
+exports.min_temp = (cities) => {
+    let temperaturaMinima = cities[0].main.temp;
+    cities.forEach(ciudad => {
+        let temperaturaMinimaCiudad =  ciudad.main.temp;
+        if (temperaturaMinimaCiudad < temperaturaMinima){
+            temperaturaMinima=temperaturaMinimaCiudad;
+        }
+        
+    });
+    return temperaturaMinima;
+};
 
 // Máxima temperatura mínima
 exports.max_temp_min = (cities) => {};
