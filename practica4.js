@@ -30,15 +30,15 @@ exports.min_temp = (cities) => {
 };
 
 exports.max_temp_min = (cities) => {
-    let temperaturaMinima = cities[0].main.temp_min;
+    let temperaturaMinimaMaxima = cities[0].main.temp_min;
     cities.forEach(ciudad => {
         let temperaturaMinimaCiudad =  ciudad.main.temp_min;
-        if (temperaturaMinimaCiudad > temperaturaMinima){
-            temperaturaMinima=temperaturaMinimaCiudad;
+        if (temperaturaMinimaCiudad > temperaturaMinimaMaxima){
+            temperaturaMinimaMaxima=temperaturaMinimaCiudad;
         }
         
     });
-    return temperaturaMinima;
+    return temperaturaMinimaMaixma;
 };
 
 exports.min_temp_max = (cities) => {};
