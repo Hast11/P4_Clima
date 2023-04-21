@@ -16,6 +16,7 @@ exports.max_temp = (cities) => {
         }
         
     });
+    return temperaturaMaxima;
 };
 
 // Temperatura mínimo
