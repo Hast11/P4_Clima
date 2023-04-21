@@ -138,6 +138,21 @@ exports.max_south = (cities) => {
     return ciudadMasSur2; */
 };
 
-exports.gravity_center = (cities) => {};
+exports.gravity_center = (cities) => {
+    //Primero: Media Aritmetica de las ciudades
+    let lonAcumulada=0;
+    let latAcumulada=0;
+    let mediaLon = cities.forEach((ciudad)=>{
+        lonAcumulada += (ciudad.coord.lon*ciudad.coord.lon)
+    });
+    let mediaLat = cities.forEach((ciudad)=>{
+        latAcumulada += (ciudad.coord.lat*ciudad.coord.lat)
+    });
+    let lonFinal = Math.sqrt(lonAcumulada);
+    let latFinal = Math.sqrt(latAcumulada);
+    //Segundo Crear Objeto con esas dos propiedades
+    let centro ={lon:lonFinal,lat:latFinal};
+    return centro;
+};
 
 exports.closest_GC = (cities) => {};
