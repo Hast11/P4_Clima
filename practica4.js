@@ -41,7 +41,15 @@ exports.max_temp_min = (cities) => {
     return temperaturaMinimaMaixma;
 };
 
-exports.min_temp_max = (cities) => {};
+exports.min_temp_max = (cities) => {
+    let tempMaxMin = cities[0].main.temp_max;
+    cities.forEach(ciudad => {
+        if(tempMaxMin>ciudad.main.temp_max){
+            tempMaxMin=ciudad.main.temp_max;
+        }
+    })
+    return tempMaxMin;
+};
 
 exports.average_temp = (cities) => {};
 
